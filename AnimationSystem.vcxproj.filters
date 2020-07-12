@@ -48,6 +48,9 @@
     <ClInclude Include="include\math\vec4.h">
       <Filter>Header Files\math</Filter>
     </ClInclude>
+    <ClInclude Include="include\math\quat.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -60,6 +63,9 @@
       <Filter>Source Files\math</Filter>
     </ClCompile>
     <ClCompile Include="src\math\math4.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="include\math\quat.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
   </ItemGroup>

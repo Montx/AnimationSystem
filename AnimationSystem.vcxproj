@@ -143,11 +143,13 @@
     <ClInclude Include="include\glad\glad.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
     <ClInclude Include="include\math\mat4.h" />
+    <ClInclude Include="include\math\quat.h" />
     <ClInclude Include="include\math\vec2.h" />
     <ClInclude Include="include\math\vec3.h" />
     <ClInclude Include="include\math\vec4.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\math\quat.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\math\math4.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
