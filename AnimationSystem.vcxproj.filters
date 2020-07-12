@@ -25,6 +25,12 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{31189841-5f5d-444c-859f-c00b8af8447c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\render">
+      <UniqueIdentifier>{03cf493e-8a55-4b18-81da-a39284f0852e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\render">
+      <UniqueIdentifier>{1caf9000-b684-4977-9e5c-53d7d02cbac6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Application.h">
@@ -51,6 +57,12 @@
     <ClInclude Include="include\math\quat.h">
       <Filter>Header Files\math</Filter>
     </ClInclude>
+    <ClInclude Include="include\math\Transform.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\Shader.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -67,6 +79,12 @@
     </ClCompile>
     <ClCompile Include="include\math\quat.cpp">
       <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\Transform.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Shader.cpp">
+      <Filter>Source Files\render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
