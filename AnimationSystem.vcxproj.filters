@@ -63,6 +63,12 @@
     <ClInclude Include="include\render\Shader.h">
       <Filter>Header Files\render</Filter>
     </ClInclude>
+    <ClInclude Include="include\render\Attribute.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\Uniform.h">
+      <Filter>Header Files\opengl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -84,6 +90,12 @@
       <Filter>Source Files\math</Filter>
     </ClCompile>
     <ClCompile Include="src\render\Shader.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Attribute.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Uniform.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
   </ItemGroup>

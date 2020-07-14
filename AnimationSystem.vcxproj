@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -148,7 +148,9 @@
     <ClInclude Include="include\math\vec2.h" />
     <ClInclude Include="include\math\vec3.h" />
     <ClInclude Include="include\math\vec4.h" />
+    <ClInclude Include="include\render\Attribute.h" />
     <ClInclude Include="include\render\Shader.h" />
+    <ClInclude Include="include\render\Uniform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\math\quat.cpp" />
@@ -156,7 +158,9 @@
     <ClCompile Include="src\math\math4.cpp" />
     <ClCompile Include="src\math\Transform.cpp" />
     <ClCompile Include="src\math\vec3.cpp" />
+    <ClCompile Include="src\render\Attribute.cpp" />
     <ClCompile Include="src\render\Shader.cpp" />
+    <ClCompile Include="src\render\Uniform.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
