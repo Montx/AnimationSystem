@@ -199,7 +199,7 @@ void Shader::Load(const std::string& vertex, const std::string& fragment) {
 		f_source = ReadFile(fragment);
 	}
 
-	unsigned int vert = CompileFragmentShader(v_source);
+	unsigned int vert = CompileVertexShader(v_source);
 	unsigned int frag = CompileFragmentShader(f_source);
 
 	if (LinkShaders(vert, frag)) {

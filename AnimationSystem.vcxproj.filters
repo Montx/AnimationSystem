@@ -67,7 +67,22 @@
       <Filter>Header Files\render</Filter>
     </ClInclude>
     <ClInclude Include="include\render\Uniform.h">
-      <Filter>Header Files\opengl</Filter>
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\IndexBuffer.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\Draw.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\stb_image.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\Texture.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sample.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +112,21 @@
     </ClCompile>
     <ClCompile Include="src\render\Uniform.cpp">
       <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\IndexBuffer.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Draw.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\stb_image.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Texture.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
