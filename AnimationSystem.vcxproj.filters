@@ -31,6 +31,12 @@
     <Filter Include="Header Files\render">
       <UniqueIdentifier>{1caf9000-b684-4977-9e5c-53d7d02cbac6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\animation">
+      <UniqueIdentifier>{69f7c3f6-addf-44c8-b199-bf170a7da98c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\animation">
+      <UniqueIdentifier>{3f36a8b5-6ea8-40e9-8358-170f82a9e0e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Application.h">
@@ -84,6 +90,12 @@
     <ClInclude Include="include\Sample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\animation\cgltf.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\GLTFLoader.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -127,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="src\Sample.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\cgltf.c">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\GLTFLoader.cpp">
+      <Filter>Source Files\animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

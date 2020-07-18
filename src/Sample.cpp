@@ -6,6 +6,7 @@
 
 void Sample::Initialize() {
 	mRotation = 0.0f;
+	mTranslation = vec3(0, 0, 0);
 	mShader = new Shader("shaders/static.vert", "shaders/lit.frag");
 	mDisplayTexture = new Texture("assets/uv.png");
 
@@ -43,16 +44,24 @@ void Sample::Initialize() {
 }
 
 void Sample::Update(float inDeltaTime) {
-	mRotation += inDeltaTime * 45.0f;
+	//mRotation += inDeltaTime * 45.0f;
 	while (mRotation > 360.0f) {
 		mRotation -= 360.0f;
+	}
+
+	if (mTranslation.x < 10) {
+		mTranslation.x += 1 * inDeltaTime;
 	}
 }
 
 void Sample::Render(float inAspectRatio) {
 	mat4 projection = perspective(60.0f, inAspectRatio, 0.01f, 1000.0f);
-	mat4 view = lookAt(vec3(0, 0, -5), vec3(0, 0, 0), vec3(0, 1, 0));
+	mat4 view = lookAt(vec3(0, 0, -5), mTranslation, vec3(0, 1, 0));
 	mat4 model = quatToMat4(angleAxis(mRotation * DEG2RAD, vec3(0, 0, 1)));
+
+	model.c3r0 = mTranslation.x;
+	model.c3r1 = mTranslation.y;
+	model.c3r2 = mTranslation.z;
 
 	mShader->Bind();
 

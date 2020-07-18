@@ -21,6 +21,7 @@ protected:
 	IndexBuffer* mIndexBuffer;
 	Texture* mDisplayTexture;
 	float mRotation;
+	vec3 mTranslation;
 public:
 	void Initialize();
 	void Update(float inDeltaTime);

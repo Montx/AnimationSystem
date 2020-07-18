@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\animation\cgltf.h" />
+    <ClInclude Include="include\animation\GLTFLoader.h" />
     <ClInclude Include="include\Application.h" />
     <ClInclude Include="include\glad\glad.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
@@ -159,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\math\quat.cpp" />
+    <ClCompile Include="src\animation\cgltf.c" />
+    <ClCompile Include="src\animation\GLTFLoader.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\math\math4.cpp" />
     <ClCompile Include="src\math\Transform.cpp" />
