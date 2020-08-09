@@ -96,6 +96,21 @@
     <ClInclude Include="include\animation\GLTFLoader.h">
       <Filter>Header Files\animation</Filter>
     </ClInclude>
+    <ClInclude Include="include\animation\Curves.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Interpolation.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Frame.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Track.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\TransformTrack.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -144,6 +159,12 @@
       <Filter>Source Files\animation</Filter>
     </ClCompile>
     <ClCompile Include="src\animation\GLTFLoader.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\Track.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\TransformTrack.cpp">
       <Filter>Source Files\animation</Filter>
     </ClCompile>
   </ItemGroup>

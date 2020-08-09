@@ -45,13 +45,13 @@ void Sample::Initialize() {
 
 void Sample::Update(float inDeltaTime) {
 	//mRotation += inDeltaTime * 45.0f;
-	while (mRotation > 360.0f) {
-		mRotation -= 360.0f;
-	}
+	//while (mRotation > 360.0f) {
+	//	mRotation -= 360.0f;
+	//}
 
-	if (mTranslation.x < 10) {
-		mTranslation.x += 1 * inDeltaTime;
-	}
+	//if (mTranslation.x < 10) {
+	//	mTranslation.x += 1 * inDeltaTime;
+	//}
 }
 
 void Sample::Render(float inAspectRatio) {
