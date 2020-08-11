@@ -12,7 +12,7 @@
 
 #define DEG2RAD 0.0174533f
 
-class Sample : public Application {
+class SampleTextureRender : public Application {
 protected:
 	Shader* mShader;
 	Attribute<vec3>* mVertexPositions;

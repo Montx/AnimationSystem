@@ -87,9 +87,6 @@
     <ClInclude Include="include\render\Texture.h">
       <Filter>Header Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="include\Sample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\animation\cgltf.h">
       <Filter>Header Files\animation</Filter>
     </ClInclude>
@@ -110,6 +107,15 @@
     </ClInclude>
     <ClInclude Include="include\animation\TransformTrack.h">
       <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\DebugDraw.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SampleTextureRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SampleTracks.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +158,6 @@
     <ClCompile Include="src\render\Texture.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sample.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\animation\cgltf.c">
       <Filter>Source Files\animation</Filter>
     </ClCompile>
@@ -166,6 +169,15 @@
     </ClCompile>
     <ClCompile Include="src\animation\TransformTrack.cpp">
       <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\DebugDraw.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SampleTextureRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SampleTracks.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

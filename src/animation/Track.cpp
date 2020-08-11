@@ -103,8 +103,7 @@ T Track<T, N>::Hermite(float t, const T& p1, const T& s1, const T& _p2, const T&
 	float tt = t * t;
 	float ttt = tt * t;
 
-	t p2 = _p2;
-
+	T p2 = _p2;
 	TrackHelpers::Neighborhood(p1, p2);
 
 	float h1 = 2.0f * ttt - 3.0f * tt + 1.0f;
@@ -112,7 +111,7 @@ T Track<T, N>::Hermite(float t, const T& p1, const T& s1, const T& _p2, const T&
 	float h3 = ttt - 2.0f * tt + t;
 	float h4 = ttt - tt;
 
-	T result = p1 * h1 + p * h2 + s1 * h3 + s2 * h4;
+	T result = p1 * h1 + p2 * h2 + s1 * h3 + s2 * h4;
 
 	return TrackHelpers::AdjustHermiteResult(result);
 }
@@ -131,10 +130,10 @@ int Track<T, N>::FrameIndex(float time, bool looping) {
 		time = fmodf(time - startTime, duration);
 
 		if (time < 0.0f) {
-			tim += endTime - startTime;
+			time += endTime - startTime;
 		}
 
-		time += time + startTime;
+		time = time + startTime;
 	}
 	else {
 		if (time <= mFrames[0].mTime) {
@@ -146,7 +145,7 @@ int Track<T, N>::FrameIndex(float time, bool looping) {
 		}
 	}
 
-	for (int i = (size)size - 1; i >= 0; --i) {
+	for (int i = (int)size - 1; i >= 0; --i) {
 		if (time >= mFrames[i].mTime) {
 			return i;
 		}
@@ -158,7 +157,7 @@ int Track<T, N>::FrameIndex(float time, bool looping) {
 
 template<typename T, int N>
 float Track<T, N>::AdjustTimeToFitTrack(float time, bool looping) {
-	unsigned int size = (unsigned int)mFrames.size(0);
+	unsigned int size = (unsigned int)mFrames.size();
 
 	if (size <= 1) { return 0.0f; }
 
@@ -267,12 +266,12 @@ T Track<T, N>::SampleCubic(float time, bool looping) {
 	T point1 = Cast(&mFrames[thisFrame].mValue[0]);
 	T slope1;
 	memcpy(&slope1, mFrames[thisFrame].mOut, N * fltSize);
-	slope1 *= frameDelta;
+	slope1 = slope1 * frameDelta;
 
 	T point2 = Cast(&mFrames[nextFrame].mValue[0]);
 	T slope2;
 	memcpy(&slope2, mFrames[nextFrame].mIn, N * fltSize);
-	flope2 *= frameDelta;
+	slope2 = slope2 * frameDelta;
 
 	return Hermite(t, point1, slope1, point2, slope2);
 }

@@ -1,10 +1,10 @@
-#include "Sample.h"
+#include "SampleTextureRender.h"
 #include "math/mat4.h"
 #include "math/quat.h"
 #include "render/Uniform.h"
 #include "render/Draw.h"
 
-void Sample::Initialize() {
+void SampleTextureRender::Initialize() {
 	mRotation = 0.0f;
 	mTranslation = vec3(0, 0, 0);
 	mShader = new Shader("shaders/static.vert", "shaders/lit.frag");
@@ -43,7 +43,7 @@ void Sample::Initialize() {
 	mIndexBuffer->Set(indices);
 }
 
-void Sample::Update(float inDeltaTime) {
+void SampleTextureRender::Update(float inDeltaTime) {
 	//mRotation += inDeltaTime * 45.0f;
 	//while (mRotation > 360.0f) {
 	//	mRotation -= 360.0f;
@@ -54,7 +54,7 @@ void Sample::Update(float inDeltaTime) {
 	//}
 }
 
-void Sample::Render(float inAspectRatio) {
+void SampleTextureRender::Render(float inAspectRatio) {
 	mat4 projection = perspective(60.0f, inAspectRatio, 0.01f, 1000.0f);
 	mat4 view = lookAt(vec3(0, 0, -5), mTranslation, vec3(0, 1, 0));
 	mat4 model = quatToMat4(angleAxis(mRotation * DEG2RAD, vec3(0, 0, 1)));
@@ -88,7 +88,7 @@ void Sample::Render(float inAspectRatio) {
 	mShader->UnBind();
 }
 
-void Sample::Shutdown() {
+void SampleTextureRender::Shutdown() {
 	delete mShader;
 	delete mDisplayTexture;
 	delete mVertexPositions;
