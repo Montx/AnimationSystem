@@ -138,7 +138,7 @@ void FreeGLTFFile(cgltf_data* data) {
 }
 
 Pose LoadRestPose(cgltf_data* handle) {
-	unsigned int boneCount = handle->nodes_count;
+	unsigned int boneCount = (unsigned int)handle->nodes_count;
 
 	Pose result(boneCount);
 

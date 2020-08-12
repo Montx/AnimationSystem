@@ -4,6 +4,7 @@
 #include "render/Attribute.h"
 #include "math/vec3.h"
 #include "math/mat4.h"
+#include "animation/Pose.h"
 
 #include <vector>
 
@@ -25,6 +26,8 @@ public:
 
 	vec3& operator[](unsigned int index);
 	void Push(const vec3& v);
+
+	void FromPose(Pose& pose);
 
 	void UpdateOpenGLBuffers();
 	void Draw(DebugDrawMode mode, const vec3& color, const mat4& mvp);

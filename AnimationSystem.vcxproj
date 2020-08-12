@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\animation\cgltf.h" />
+    <ClInclude Include="include\animation\Clip.h" />
     <ClInclude Include="include\animation\Curves.h" />
     <ClInclude Include="include\animation\Frame.h" />
     <ClInclude Include="include\animation\GLTFLoader.h" />
     <ClInclude Include="include\animation\Interpolation.h" />
+    <ClInclude Include="include\animation\Pose.h" />
     <ClInclude Include="include\animation\Track.h" />
     <ClInclude Include="include\animation\TransformTrack.h" />
     <ClInclude Include="include\Application.h" />
@@ -163,6 +165,7 @@
     <ClInclude Include="include\render\stb_image.h" />
     <ClInclude Include="include\render\Texture.h" />
     <ClInclude Include="include\render\Uniform.h" />
+    <ClInclude Include="include\SampleRestPose.h" />
     <ClInclude Include="include\SampleTextureRender.h" />
     <ClInclude Include="include\SampleTracks.h" />
   </ItemGroup>
@@ -170,6 +173,8 @@
     <ClCompile Include="include\math\quat.cpp" />
     <ClCompile Include="src\animation\cgltf.c" />
     <ClCompile Include="src\animation\GLTFLoader.cpp" />
+    <ClCompile Include="src\animation\Pose.cpp" />
+    <ClCompile Include="src\animation\Clip.cpp" />
     <ClCompile Include="src\animation\Track.cpp" />
     <ClCompile Include="src\animation\TransformTrack.cpp" />
     <ClCompile Include="src\glad.c" />
@@ -184,6 +189,7 @@
     <ClCompile Include="src\render\stb_image.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />
     <ClCompile Include="src\render\Uniform.cpp" />
+    <ClCompile Include="src\SampleRestPose.cpp" />
     <ClCompile Include="src\SampleTextureRender.cpp" />
     <ClCompile Include="src\SampleTracks.cpp" />
     <ClCompile Include="src\WinMain.cpp" />

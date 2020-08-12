@@ -10,7 +10,7 @@
 #include <iostream>
 
 #include "Application.h"
-#include "SampleTracks.h"
+#include "SampleRestPose.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, PSTR, int);
 
@@ -61,7 +61,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 	/* WINDOW CREATION */
 
-	gApplication = new SampleTracks();
+	gApplication = new SampleRestPose();
 
 	WNDCLASSEX wndclass;
 	wndclass.cbSize = sizeof(WNDCLASSEX);
