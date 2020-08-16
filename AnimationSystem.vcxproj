@@ -146,6 +146,7 @@
     <ClInclude Include="include\animation\GLTFLoader.h" />
     <ClInclude Include="include\animation\Interpolation.h" />
     <ClInclude Include="include\animation\Pose.h" />
+    <ClInclude Include="include\animation\Skeleton.h" />
     <ClInclude Include="include\animation\Track.h" />
     <ClInclude Include="include\animation\TransformTrack.h" />
     <ClInclude Include="include\Application.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="include\render\DebugDraw.h" />
     <ClInclude Include="include\render\Draw.h" />
     <ClInclude Include="include\render\IndexBuffer.h" />
+    <ClInclude Include="include\render\Mesh.h" />
     <ClInclude Include="include\render\Shader.h" />
     <ClInclude Include="include\render\stb_image.h" />
     <ClInclude Include="include\render\Texture.h" />
@@ -175,6 +177,7 @@
     <ClCompile Include="src\animation\GLTFLoader.cpp" />
     <ClCompile Include="src\animation\Pose.cpp" />
     <ClCompile Include="src\animation\Clip.cpp" />
+    <ClCompile Include="src\animation\Skeleton.cpp" />
     <ClCompile Include="src\animation\Track.cpp" />
     <ClCompile Include="src\animation\TransformTrack.cpp" />
     <ClCompile Include="src\glad.c" />
@@ -185,6 +188,7 @@
     <ClCompile Include="src\render\DebugDraw.cpp" />
     <ClCompile Include="src\render\Draw.cpp" />
     <ClCompile Include="src\render\IndexBuffer.cpp" />
+    <ClCompile Include="src\render\Mesh.cpp" />
     <ClCompile Include="src\render\Shader.cpp" />
     <ClCompile Include="src\render\stb_image.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />

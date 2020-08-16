@@ -126,6 +126,9 @@
     <ClInclude Include="include\SampleRestPose.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\animation\Skeleton.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -196,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="src\SampleRestPose.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\Skeleton.cpp">
+      <Filter>Source Files\animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
