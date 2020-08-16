@@ -167,6 +167,7 @@
     <ClInclude Include="include\render\stb_image.h" />
     <ClInclude Include="include\render\Texture.h" />
     <ClInclude Include="include\render\Uniform.h" />
+    <ClInclude Include="include\SampleMeshLoading.h" />
     <ClInclude Include="include\SampleRestPose.h" />
     <ClInclude Include="include\SampleTextureRender.h" />
     <ClInclude Include="include\SampleTracks.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="src\render\stb_image.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />
     <ClCompile Include="src\render\Uniform.cpp" />
+    <ClCompile Include="src\SampleMeshLoading.cpp" />
     <ClCompile Include="src\SampleRestPose.cpp" />
     <ClCompile Include="src\SampleTextureRender.cpp" />
     <ClCompile Include="src\SampleTracks.cpp" />

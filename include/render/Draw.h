@@ -15,5 +15,5 @@ enum class DrawMode {
 void Draw(IndexBuffer& inIndexBuffer, DrawMode mode);
 void Draw(unsigned int vertexCount, DrawMode mode);
 
-void DrawInstance(IndexBuffer& inIndexBuffer, DrawMode mode, unsigned int instanceCount);
-void DrawInstance(unsigned int vertexCount, DrawMode mode, unsigned int numInstances);
+void DrawInstanced(IndexBuffer& inIndexBuffer, DrawMode mode, unsigned int instanceCount);
+void DrawInstanced(unsigned int vertexCount, DrawMode mode, unsigned int numInstances);

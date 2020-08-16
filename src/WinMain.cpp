@@ -10,7 +10,7 @@
 #include <iostream>
 
 #include "Application.h"
-#include "SampleRestPose.h"
+#include "SampleMeshLoading.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, PSTR, int);
 
@@ -61,7 +61,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 	/* WINDOW CREATION */
 
-	gApplication = new SampleRestPose();
+	gApplication = new SampleMeshLoading();
 
 	WNDCLASSEX wndclass;
 	wndclass.cbSize = sizeof(WNDCLASSEX);

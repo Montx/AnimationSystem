@@ -129,6 +129,12 @@
     <ClInclude Include="include\animation\Skeleton.h">
       <Filter>Header Files\animation</Filter>
     </ClInclude>
+    <ClInclude Include="include\render\Mesh.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SampleMeshLoading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -202,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="src\animation\Skeleton.cpp">
       <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\Mesh.cpp">
+      <Filter>Source Files\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SampleMeshLoading.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

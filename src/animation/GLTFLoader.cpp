@@ -119,7 +119,7 @@ namespace GLTFHelpers {
 
 		std::vector<float> values;
 		GetScalarValues(values, componentCount, accessor);
-		unsigned int accessorCount = accessor.count;
+		unsigned int accessorCount = (unsigned int)accessor.count;
 
 		std::vector<vec3>& positions = outMesh.GetPosition();
 		std::vector<vec3>& normals = outMesh.GetNormal();
@@ -162,9 +162,9 @@ namespace GLTFHelpers {
 					// round, since we can't read integers
 					ivec4 joints(
 						(int)(values[index + 0] + 0.5f),
-						(int)(values[index + 0] + 0.5f),
-						(int)(values[index + 0] + 0.5f),
-						(int)(values[index + 0] + 0.5f)
+						(int)(values[index + 1] + 0.5f),
+						(int)(values[index + 2] + 0.5f),
+						(int)(values[index + 3] + 0.5f)
 					);
 					joints.x = GetNodeIndex(skin->joints[joints.x], nodes, nodeCount);
 					joints.y = GetNodeIndex(skin->joints[joints.y], nodes, nodeCount);
@@ -332,7 +332,7 @@ Pose LoadBindPose(cgltf_data* handle) {
 	for (unsigned int i = 0; i < numBones; ++i) {
 		Transform current = worldBindPose[i];
 		int p = bindPose.GetParent(i);
-		if (p > 0) { // Bring into parent space
+		if (p >= 0) { // Bring into parent space
 			Transform parent = worldBindPose[p];
 			current = combine(inverse(parent), current);
 		}	
@@ -353,7 +353,7 @@ Skeleton LoadSkeleton(cgltf_data* handle) {
 std::vector<Mesh> LoadMeshes(cgltf_data* handle) {
 	std::vector<Mesh> result;
 	cgltf_node* nodes = handle->nodes;
-	unsigned int nodeCount = handle->nodes_count;
+	unsigned int nodeCount = (unsigned int)handle->nodes_count;
 
 	for (unsigned int i = 0; i < nodeCount; ++i) {
 		cgltf_node* node = &nodes[i];
@@ -380,7 +380,7 @@ std::vector<Mesh> LoadMeshes(cgltf_data* handle) {
 				indices.resize(ic);
 
 				for (unsigned int k = 0; k < ic; ++k) {
-					indices[k] = cgltf_accessor_read_index(primitive->indices, k);
+					indices[k] = (unsigned int)cgltf_accessor_read_index(primitive->indices, k);
 				}
 			}
 

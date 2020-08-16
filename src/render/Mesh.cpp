@@ -115,10 +115,10 @@ void Mesh::Draw() {
 
 void Mesh::DrawInstanced(unsigned int numInstances) {
 	if (mIndices.size() > 0) {
-		::DrawInstance(*mIndexBuffer, DrawMode::Triangles, numInstances);
+		::DrawInstanced(*mIndexBuffer, DrawMode::Triangles, numInstances);
 	}
 	else {
-		::DrawInstance(mPosition.size(), DrawMode::Triangles, numInstances);
+		::DrawInstanced(mPosition.size(), DrawMode::Triangles, numInstances);
 	}
 }
 
