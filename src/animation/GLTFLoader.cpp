@@ -131,20 +131,20 @@ namespace GLTFHelpers {
 			int index = i * componentCount;
 			switch (attribType) {
 				case cgltf_attribute_type_position:
-					positions.push_back(vec3(values[index + 0], values[index + 1], values[index + 2]));
+					positions.push_back(vec3(values[index], values[index + 1], values[index + 2]));
 					break;
 
 				case cgltf_attribute_type_texcoord:
-					texCoords.push_back(vec2(values[index + 0], values[index + 1]));
+					texCoords.push_back(vec2(values[index], values[index + 1]));
 					break;
 
 				case cgltf_attribute_type_weights:
-					weights.push_back(vec4(values[index + 0], values[index + 1], values[index + 2], values[index + 3]));
+					weights.push_back(vec4(values[index], values[index + 1], values[index + 2], values[index + 3]));
 					break;
 
 				case cgltf_attribute_type_normal:
 				{
-					vec3 normal = vec3(values[index + 0], values[index + 1], values[index + 2]);
+					vec3 normal = vec3(values[index], values[index + 1], values[index + 2]);
 
 					if (lenSq(normal) < 0.000001f) {
 						normal = vec3(0, 1, 0);
@@ -223,7 +223,6 @@ void FreeGLTFFile(cgltf_data* data) {
 
 Pose LoadRestPose(cgltf_data* handle) {
 	unsigned int boneCount = (unsigned int)handle->nodes_count;
-
 	Pose result(boneCount);
 
 	for (unsigned int i = 0; i < boneCount; ++i) {

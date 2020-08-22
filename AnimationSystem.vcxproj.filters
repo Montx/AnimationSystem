@@ -135,6 +135,9 @@
     <ClInclude Include="include\SampleMeshLoading.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\SampleBindPose.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -144,9 +147,6 @@
       <Filter>Source Files\opengl</Filter>
     </ClCompile>
     <ClCompile Include="src\math\vec3.cpp">
-      <Filter>Source Files\math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\math\math4.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
     <ClCompile Include="include\math\quat.cpp">
@@ -214,6 +214,12 @@
     </ClCompile>
     <ClCompile Include="src\SampleMeshLoading.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SampleBindPose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\mat4.cpp">
+      <Filter>Source Files\math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

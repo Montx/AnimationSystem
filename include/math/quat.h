@@ -59,7 +59,7 @@ quat mix(const quat& from, const quat& to, float t);
 quat nlerp(const quat& from, const quat& to, float t);
 quat slerp(const quat& start, const quat& end, float t);
 
-quat lookRotation(const vec3 direction, const vec3& up);
+quat lookRotation(const vec3& direction, const vec3& up);
 
 mat4 quatToMat4(const quat& q);
 quat mat4ToQuat(const mat4& m);

@@ -8,8 +8,10 @@ namespace {
 
 Transform combine(const Transform& a, const Transform& b) {
 	Transform out;
+
 	out.scale = a.scale * b.scale;
 	out.rotation = b.rotation * a.rotation;
+
 	out.position = a.rotation * (a.scale * b.position);
 	out.position = a.position + out.position;
 
