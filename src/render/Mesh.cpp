@@ -168,3 +168,11 @@ void Mesh::CPUSkin(Skeleton& skeleton, Pose& pose) {
 	mPosAttrib->Set(mSkinnedPosition);
 	mNormAttrib->Set(mSkinnedNormal);
 }
+
+void Mesh::CPUSkin(std::vector<mat4>& animatedPose) {
+	unsigned int numVerts = mPosition.size();
+	if (numVerts == 0) {
+		return;
+	}
+	mSkinnedPosition.resize(numVerts);
+}

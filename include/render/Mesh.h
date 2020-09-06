@@ -28,6 +28,7 @@ public:
 	std::vector<unsigned int>& GetIndices();
 
 	void CPUSkin(Skeleton& skeleton, Pose& pose);
+	void CPUSkin(std::vector<mat4>& animatedPose);
 	void UpdateOpenGLBuffers();
 	void Bind(int position, int normal, int texCoord, int weight, int influence);
 
