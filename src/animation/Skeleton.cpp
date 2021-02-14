@@ -6,11 +6,19 @@ Skeleton::Skeleton(const Pose & rest, const Pose & bind, const std::vector<std::
 	Set(rest, bind, names);
 }
 
-void Skeleton::Set(const Pose& rest, const Pose& bind, const std::vector<std::string>& names) {
-	mRestPose = rest;
+Skeleton::Skeleton(const Pose& bind, const std::vector<std::string>& names) {
+	Set(bind, names);
+}
+
+void Skeleton::Set(const Pose& bind, const std::vector<std::string>& names) {
 	mBindPose = bind;
 	mJointNames = names;
 	UpdateInverseBindPose();
+}
+
+void Skeleton::Set(const Pose& rest, const Pose& bind, const std::vector<std::string>& names) {
+	mRestPose = rest;
+	Set(bind, names);
 }
 
 void Skeleton::UpdateInverseBindPose() {

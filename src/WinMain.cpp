@@ -6,11 +6,19 @@
 
 #include "glad.h"
 
+#include <imgui/imgui.h>
+#include <imgui/imgui_impl_opengl3.h>
+#include <imgui/imgui_impl_win32.h>
+#include <imgui/imgui_internal.h>
+
 #include <windows.h>
+#include <windowsx.h>
 #include <iostream>
 
 #include "Application.h"
 #include "SampleMeshLoading.h"
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, PSTR, int);
 
@@ -57,6 +65,42 @@ typedef int (WINAPI* PFNWGLGETSWAPINTERVALEXTPROC) (void);
 Application* gApplication = 0;
 GLuint gVertexArrayObject = 0;
 
+void ShowCustomWindow(bool show_demo_window, bool& show_another_window) {
+	static float f = 0.0f;
+	static int counter = 0;
+
+	ImGui::Begin("Custom Window");
+
+	ImGui::Text("This is some useful text.");
+	ImGui::Checkbox("Demon Window", &show_demo_window);
+	ImGui::Checkbox("Another Window", &show_another_window);
+
+	ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
+
+	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	ImGui::ColorEdit3("clear color", (float*)&clear_color);
+
+	if (ImGui::Button("Button"))
+		counter++;
+
+	ImGui::SameLine();
+	ImGui::Text("counter = %d", counter);
+
+	ImGui::Text("Application average %3.f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	ImGui::End();
+
+	if (show_another_window) {
+		ImGui::Begin("Another Window", &show_another_window);
+		ImGui::Text("Hello from another window!");
+
+		if (ImGui::Button("Close Me")) {
+			show_another_window = false;
+		}
+
+		ImGui::End();
+	}
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow) {
 
 	/* WINDOW CREATION */
@@ -82,15 +126,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 	int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	int clientWidth = 800;
-	int clientHeight = 600;
-
 	RECT windowRect;
 	SetRect(
-		&windowRect, 
-		(screenWidth / 2) - (clientWidth / 2), 
-		(screenHeight / 2) - (clientHeight / 2), 
-		(screenWidth / 2) + (clientWidth / 2), 
+		&windowRect,
+		(screenWidth / 2) - (clientWidth / 2),
+		(screenHeight / 2) - (clientHeight / 2),
+		(screenWidth / 2) + (clientWidth / 2),
 		(screenHeight / 2) + (clientHeight / 2));
 
 	DWORD style = (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_THICKFRAME);
@@ -98,17 +139,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	AdjustWindowRectEx(&windowRect, style, FALSE, 0);
 
 	HWND hwnd = CreateWindowEx(
-		0, 
-		wndclass.lpszClassName, 
+		0,
+		wndclass.lpszClassName,
 		(LPCWSTR)"Game Window",
-		style, 
-		windowRect.left, 
-		windowRect.top, 
-		windowRect.right - windowRect.left, 
-		windowRect.bottom - windowRect.top, 
-		NULL, 
-		NULL, 
-		hInstance, 
+		style,
+		windowRect.left,
+		windowRect.top,
+		windowRect.right - windowRect.left,
+		windowRect.bottom - windowRect.top,
+		NULL,
+		NULL,
+		hInstance,
 		szCmdLine);
 
 	HDC hdc = GetDC(hwnd);
@@ -126,7 +167,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	pfd.cDepthBits = 32;
 	pfd.cStencilBits = 8;
 	pfd.iLayerType = PFD_MAIN_PLANE;
-	
+
 	int pixelFormat = ChoosePixelFormat(hdc, &pfd);
 
 	SetPixelFormat(hdc, pixelFormat, &pfd);
@@ -145,7 +186,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 		WGL_CONTEXT_FLAGS_ARB, 0,
 		WGL_CONTEXT_PROFILE_MASK_ARB,
 		WGL_CONTEXT_CORE_PROFILE_BIT_ARB,
-		0 
+		0
 	};
 
 	/* Modern Opengl Context Creation */
@@ -160,6 +201,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	else {
 		std::cout << "OpenGL Version " << GLVersion.major << "." << GLVersion.minor << "\n";
 	}
+
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO();
+	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
+	io.ConfigDockingWithShift = true;
+
+	ImGui::StyleColorsDark();
+
+	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
+		ImGuiStyle& style = ImGui::GetStyle();
+		style.WindowRounding = 0.0f;
+		style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+	}
+
+	ImGui_ImplWin32_Init(hwnd);
+	ImGui_ImplOpenGL3_Init("#version 150");
 
 	/* Enable VSynch Support */
 	PFNWGLGETEXTENSIONSSTRINGEXTPROC _wglGetExtensionsStringEXT = (PFNWGLGETEXTENSIONSSTRINGEXTPROC)wglGetProcAddress("wglGetExtensionsStringEXT");
@@ -201,15 +260,61 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 	MSG msg;
 
+	bool show_another_window = false;
+	bool show_demo_window = false;
+
 	while(true) {
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+
 			if (msg.message == WM_QUIT) {
 				break;
 			}
 
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+			ImGui_ImplWin32_WndProcHandler(hwnd, msg.message, msg.wParam, msg.lParam);
+
+			if (msg.message == WM_KEYDOWN) {
+				if (msg.wParam == VK_F1) {
+					imgui_on = !imgui_on;
+				}
+
+				if (imgui_on) {
+					if (msg.wParam == VK_HOME) {
+						show_demo_window = !show_demo_window;
+					}
+				}
+			}
+			
+			if (!imgui_on) {
+				if (msg.message == WM_MOUSEMOVE) {
+					int xPos = GET_X_LPARAM(msg.lParam);
+					int yPos = GET_Y_LPARAM(msg.lParam);
+
+					if (gApplication != 0) {
+						gApplication->MouseMovement(xPos, yPos);
+					}
+				}
+
+				if (msg.message == WM_MOUSEWHEEL) {
+					if (gApplication != 0) {
+						gApplication->Zoom(GET_WHEEL_DELTA_WPARAM(msg.wParam));
+					}
+				}
+
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
 		}
+
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplWin32_NewFrame();
+		ImGui::NewFrame();
+
+		if (imgui_on) {
+			if(show_demo_window) ImGui::ShowDemoWindow();
+			gApplication->ShowDebugUi();
+		}
+
+		ImGui::Render();
 
 		DWORD thisTick = GetTickCount();
 
@@ -245,6 +350,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 			gApplication->Render(aspect);
 		}
 
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
+			HGLRC hglrc = wglGetCurrentContext();
+			HDC hdc = GetDC(hwnd);
+
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+			
+			wglMakeCurrent(NULL, NULL);
+			wglMakeCurrent(hdc, hglrc);
+		}
+
 		if (gApplication != 0) {
 			SwapBuffers(hdc);
 			if (vsynch != 0) {
@@ -252,6 +370,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 			}
 		}
 	}
+
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplWin32_Shutdown();
+	ImGui::DestroyContext();
 
 	/* END OF GAME LOOP */
 

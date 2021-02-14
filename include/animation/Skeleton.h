@@ -10,7 +10,9 @@ class Skeleton {
 public:
 	Skeleton();
 	Skeleton(const Pose& rest, const Pose& bind, const std::vector<std::string>& names);
+	Skeleton(const Pose& bind, const std::vector<std::string>& names);
 
+	void Set(const Pose& bind, const std::vector<std::string>& names);
 	void Set(const Pose& rest, const Pose& bind, const std::vector<std::string>& names);
 
 	Pose& GetBindPose();

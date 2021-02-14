@@ -1,5 +1,7 @@
 #include "math/mat4.h"
 
+#include "math/quat.h"
+
 #include <iostream>
 
 namespace {
@@ -232,4 +234,26 @@ mat4 lookAt(const vec3& position, const vec3& target, const vec3& up) {
 		r.z, u.z, f.z, 0,
 		t.x, t.y, t.z, 1
 	);
+}
+
+mat4 orbitAround(vec3& position, const vec3& rotation, const vec3& target, const vec3& up) {
+	// Remember, forward is negative z
+	vec3 direction = position - target;
+	vec3 f = normalized(direction);
+	vec3 r = cross(up, f); // Right handed
+	if (r == vec3(0, 0, 0)) {
+		return mat4(); // Error
+	}
+	normalize(r);
+	vec3 u = normalized(cross(f, r)); // Right handed
+
+	mat4 yaw = quatToMat4(angleAxis(rotation.y, u));
+	mat4 pitch = quatToMat4(angleAxis(rotation.z, r));
+
+	direction = transformVector(pitch, direction);
+	direction = transformVector(yaw, direction);
+
+	//position = target + direction;
+
+	return lookAt(target + direction, target, up);
 }

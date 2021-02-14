@@ -85,7 +85,7 @@ mat4 transformToMat4(const Transform& t) {
 Transform mat4ToTransform(const mat4& m) {
 	Transform out;
 
-	out.position = vec3(m.v[12], m.v[13], m.v[14]);
+	out.position = vec3(m.v[12] / 100, m.v[13] / 100, m.v[14] / 100);
 	
 	out.rotation = mat4ToQuat(m);
 
