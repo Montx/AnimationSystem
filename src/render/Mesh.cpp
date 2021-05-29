@@ -174,29 +174,5 @@ void Mesh::CPUSkin(std::vector<mat4>& animatedPose) {
 	if (numVerts == 0) {
 		return;
 	}
-
 	mSkinnedPosition.resize(numVerts);
-	mSkinnedNormal.resize(numVerts);
-
-	for (unsigned int i = 0; i < numVerts; ++i) {
-		ivec4& j = mInfluences[i];
-		vec4& w = mWeights[i];
-
-		vec3 p0 = transformPoint(animatedPose[j.x], mPosition[i]);
-		vec3 p1 = transformPoint(animatedPose[j.y], mPosition[i]);
-		vec3 p2 = transformPoint(animatedPose[j.z], mPosition[i]);
-		vec3 p3 = transformPoint(animatedPose[j.w], mPosition[i]);
-
-		mSkinnedPosition[i] = p0 * w.x + p1 * w.y + p2 * w.z + p3 * w.w;
-
-		p0 = transformPoint(animatedPose[j.x], mNormal[i]);
-		p1 = transformPoint(animatedPose[j.y], mNormal[i]);
-		p2 = transformPoint(animatedPose[j.z], mNormal[i]);
-		p3 = transformPoint(animatedPose[j.w], mNormal[i]);
-
-		mSkinnedNormal[i] = p0 * w.x + p1 * w.y + p2 * w.z + p3 * w.w;
-	}
-
-	mPosAttrib->Set(mSkinnedPosition);
-	mNormAttrib->Set(mSkinnedNormal);
 }

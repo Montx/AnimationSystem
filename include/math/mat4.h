@@ -44,12 +44,6 @@ struct mat4 {
 		, zx(fv[8]), zy(fv[9]), zz(fv[10]), zw(fv[11])
 		, tx(fv[12]), ty(fv[13]), tz(fv[14]), tw(fv[15]) {}
 
-	inline mat4(double* fv)
-		: xx(fv[0]), xy(fv[1]), xz(fv[2]), xw(fv[3])
-		, yx(fv[4]), yy(fv[5]), yz(fv[6]), yw(fv[7])
-		, zx(fv[8]), zy(fv[9]), zz(fv[10]), zw(fv[11])
-		, tx(fv[12]), ty(fv[13]), tz(fv[14]), tw(fv[15]) {}
-
 	inline mat4(
 		float _00, float _01, float _02, float _03,
 		float _10, float _11, float _12, float _13,
@@ -83,4 +77,3 @@ mat4 frustum(float l, float r, float b, float t, float n, float f);
 mat4 perspective(float fov, float aspect, float n, float f);
 mat4 ortho(float l, float r, float b, float t, float n, float f);
 mat4 lookAt(const vec3& position, const vec3& target, const vec3& up);
-mat4 orbitAround(vec3& position, const vec3& rotation, const vec3& target, const vec3& up);
