@@ -3,16 +3,17 @@
 #include "animation/Track.h"
 #include "math/Transform.h"
 
-class TransformTrack {
+template <typename VTRACK, typename QTRACK>
+class TTransformTrack {
 public:
-	TransformTrack();
+	TTransformTrack();
 
 	unsigned int GetId();
 	void SetId(unsigned int id);
 
-	VectorTrack& GetPositionTrack();
-	QuaternionTrack& GetRotationTack();
-	VectorTrack& GetScaleTrack();
+	VTRACK& GetPositionTrack();
+	QTRACK& GetRotationTrack();
+	VTRACK& GetScaleTrack();
 
 	float GetStartTime();
 	float GetEndTime();
@@ -23,7 +24,12 @@ public:
 
 protected:
 	unsigned int mId;
-	VectorTrack mPosition;
-	QuaternionTrack mRotation;
-	VectorTrack mScale;
+	VTRACK mPosition;
+	QTRACK mRotation;
+	VTRACK mScale;
 };
+
+typedef TTransformTrack<VectorTrack, QuaternionTrack> TransformTrack;
+typedef TTransformTrack<VectorFastTrack, QuaternionFastTrack> FastTransformTrack;
+
+FastTransformTrack OptimizeTransformTrack(TransformTrack& input);

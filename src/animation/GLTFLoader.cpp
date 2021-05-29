@@ -283,7 +283,7 @@ std::vector<Clip> LoadAnimationClips(cgltf_data* handle) {
 				GLTFHelpers::TrackFromChannel<vec3, 3>(track, channel);
 			}
 			else if (channel.target_path == cgltf_animation_path_type_rotation) {
-				QuaternionTrack& track = result[i][nodeId].GetRotationTack();
+				QuaternionTrack& track = result[i][nodeId].GetRotationTrack();
 				GLTFHelpers::TrackFromChannel<quat, 4>(track, channel);
 			}
 		}

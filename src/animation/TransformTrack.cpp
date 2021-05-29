@@ -1,24 +1,35 @@
 #include "animation/TransformTrack.h"
 
-TransformTrack::TransformTrack() : mId(0) {}
+template TTransformTrack<VectorTrack, QuaternionTrack>;
+template TTransformTrack<VectorFastTrack, QuaternionFastTrack>;
 
-unsigned int TransformTrack::GetId() { return mId; }
+template <typename VTRACK, typename QTRACK>
+TTransformTrack<VTRACK, QTRACK>::TTransformTrack() : mId(0) {}
 
-void TransformTrack::SetId(unsigned int id) { mId = id; }
+template <typename VTRACK, typename QTRACK>
+unsigned int TTransformTrack<VTRACK, QTRACK>::GetId() { return mId; }
 
-VectorTrack& TransformTrack::GetPositionTrack() { return mPosition; }
+template <typename VTRACK, typename QTRACK>
+void TTransformTrack<VTRACK, QTRACK>::SetId(unsigned int id) { mId = id; }
 
-QuaternionTrack& TransformTrack::GetRotationTack() { return mRotation; }
+template <typename VTRACK, typename QTRACK>
+VTRACK& TTransformTrack<VTRACK, QTRACK>::GetPositionTrack() { return mPosition; }
 
-VectorTrack& TransformTrack::GetScaleTrack() { return mScale; }
+template <typename VTRACK, typename QTRACK>
+QTRACK& TTransformTrack<VTRACK, QTRACK>::GetRotationTrack() { return mRotation; }
 
-bool TransformTrack::IsValid() {
+template <typename VTRACK, typename QTRACK>
+VTRACK& TTransformTrack<VTRACK, QTRACK>::GetScaleTrack() { return mScale; }
+
+template <typename VTRACK, typename QTRACK>
+bool TTransformTrack<VTRACK, QTRACK>::IsValid() {
 	return mPosition.Size() > 1 ||
 		   mRotation.Size() > 1 ||
 		   mScale.Size() > 1;
 }
 
-float TransformTrack::GetStartTime() {
+template <typename VTRACK, typename QTRACK>
+float TTransformTrack<VTRACK, QTRACK>::GetStartTime() {
 	float result = 0.0f;
 	bool isSet = false;
 
@@ -47,7 +58,8 @@ float TransformTrack::GetStartTime() {
 	return result;
 }
 
-float TransformTrack::GetEndTime() {
+template <typename VTRACK, typename QTRACK>
+float TTransformTrack<VTRACK, QTRACK>::GetEndTime() {
 	float result = 0.0f;
 	bool isSet = false;
 
@@ -75,7 +87,8 @@ float TransformTrack::GetEndTime() {
 	return result;
 }
 
-Transform TransformTrack::Sample(const Transform& ref, float time, bool loop) {
+template <typename VTRACK, typename QTRACK>
+Transform TTransformTrack<VTRACK, QTRACK>::Sample(const Transform& ref, float time, bool loop) {
 	Transform result = ref; // Assign default values
 
 	if (mPosition.Size() > 1) {
@@ -89,6 +102,17 @@ Transform TransformTrack::Sample(const Transform& ref, float time, bool loop) {
 	if (mScale.Size() > 1) {
 		result.scale = mScale.Sample(time, loop);
 	}
+
+	return result;
+}
+
+FastTransformTrack OptimizeTransformTrack(TransformTrack& input) {
+	FastTransformTrack result;
+
+	result.SetId(input.GetId());
+	result.GetPositionTrack() = OptimizeTrack<vec3, 3>(input.GetPositionTrack());
+	result.GetRotationTrack() = OptimizeTrack<quat, 4>(input.GetRotationTrack());
+	result.GetScaleTrack() = OptimizeTrack<vec3, 3>(input.GetScaleTrack());
 
 	return result;
 }

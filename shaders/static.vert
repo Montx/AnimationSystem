@@ -13,9 +13,9 @@ out vec3 fragPos;
 out vec2 uv;
 
 void main() {
-    gl_Position = projection * view * model * vec4(position, 1.0f);
-
-    fragPos = vec3(model * vec4(position, 1.0f));
+    gl_Position = projection * view * model * vec4(position, 1.0);
+    
+    fragPos = vec3(model * vec4(position, 1.0));
     norm = vec3(model * vec4(normal, 0.0f));
     uv = texCoord;
 }

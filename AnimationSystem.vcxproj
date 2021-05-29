@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\animation\Blends.h" />
     <ClInclude Include="include\animation\cgltf.h" />
     <ClInclude Include="include\animation\Clip.h" />
+    <ClInclude Include="include\animation\CrossFadeController.h" />
+    <ClInclude Include="include\animation\CrossFadeTarget.h" />
     <ClInclude Include="include\animation\Curves.h" />
     <ClInclude Include="include\animation\Frame.h" />
     <ClInclude Include="include\animation\GLTFLoader.h" />
@@ -167,14 +170,16 @@
     <ClInclude Include="include\render\stb_image.h" />
     <ClInclude Include="include\render\Texture.h" />
     <ClInclude Include="include\render\Uniform.h" />
-    <ClInclude Include="include\SampleBindPose.h" />
+    <ClInclude Include="include\SampleBlends.h" />
     <ClInclude Include="include\SampleMeshLoading.h" />
     <ClInclude Include="include\SampleRestPose.h" />
     <ClInclude Include="include\SampleTextureRender.h" />
     <ClInclude Include="include\SampleTracks.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\animation\CrossFadeController.cpp" />
     <ClCompile Include="include\math\quat.cpp" />
+    <ClCompile Include="src\animation\Blends.cpp" />
     <ClCompile Include="src\animation\cgltf.c" />
     <ClCompile Include="src\animation\GLTFLoader.cpp" />
     <ClCompile Include="src\animation\Pose.cpp" />
@@ -195,7 +200,7 @@
     <ClCompile Include="src\render\stb_image.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />
     <ClCompile Include="src\render\Uniform.cpp" />
-    <ClCompile Include="src\SampleBindPose.cpp" />
+    <ClCompile Include="src\SampleBlends.cpp" />
     <ClCompile Include="src\SampleMeshLoading.cpp" />
     <ClCompile Include="src\SampleRestPose.cpp" />
     <ClCompile Include="src\SampleTextureRender.cpp" />
