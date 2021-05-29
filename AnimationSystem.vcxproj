@@ -175,6 +175,7 @@
     <ClInclude Include="include\render\Draw.h" />
     <ClInclude Include="include\render\IndexBuffer.h" />
     <ClInclude Include="include\render\Mesh.h" />
+    <ClInclude Include="include\render\MeshFbx.h" />
     <ClInclude Include="include\render\Shader.h" />
     <ClInclude Include="include\render\stb_image.h" />
     <ClInclude Include="include\render\Texture.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="src\render\Draw.cpp" />
     <ClCompile Include="src\render\IndexBuffer.cpp" />
     <ClCompile Include="src\render\Mesh.cpp" />
+    <ClCompile Include="src\render\MeshFbx.cpp" />
     <ClCompile Include="src\render\Shader.cpp" />
     <ClCompile Include="src\render\stb_image.cpp" />
     <ClCompile Include="src\render\Texture.cpp" />

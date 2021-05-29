@@ -13,13 +13,13 @@ ofbx::IScene* gScene = nullptr;
 std::vector<Mesh> loaded_mesh;
 
 void SampleMeshLoading::Initialize() {
-	gScene = LoadFbx("Assets/ybot.fbx");
-	mCPUMeshes = LoadFbxMeshes(*gScene);
-	mSkeleton = LoadFbxSkeleton(*gScene);
+	//gScene = LoadFbx("Assets/ybot.fbx");
+	//mCPUMeshes = LoadFbxMeshes(*gScene);
+	//mSkeleton = LoadFbxSkeleton(*gScene);
 	cgltf_data* gltf = LoadGLTFFile("Assets/Woman.gltf");
-	//mCPUMeshes = LoadMeshes(gltf);
-	//mSkeleton = LoadSkeleton(gltf);
-	//mClips = LoadAnimationClips(gltf);
+	mCPUMeshes = LoadMeshes(gltf);
+	mSkeleton = LoadSkeleton(gltf);
+	mClips = LoadAnimationClips(gltf);
 	FreeGLTFFile(gltf);
 
 	mGPUMeshes = mCPUMeshes;
@@ -27,10 +27,10 @@ void SampleMeshLoading::Initialize() {
 		mGPUMeshes[i].UpdateOpenGLBuffers();
 	}
 
-	mRestPoseVisual = new DebugDraw();
+	/*mRestPoseVisual = new DebugDraw();
 	Pose pose = LoadFbxBindPose(*gScene);
 	mRestPoseVisual->FromPose(pose);
-	mRestPoseVisual->UpdateOpenGLBuffers();
+	mRestPoseVisual->UpdateOpenGLBuffers();*/
 
 	mStaticShader = new Shader("Shaders/static.vert", "Shaders/lit.frag");
 	mSkinnedShader = new Shader("Shaders/skinned.vert", "Shaders/lit.frag");
@@ -44,7 +44,7 @@ void SampleMeshLoading::Initialize() {
 	mGPUAnimInfo.mModel.position = vec3(0, 0, 0);
 	mCPUAnimInfo.mModel.position = vec3(0, 0, 0);
 
-	/*unsigned int numUIClips = (unsigned int)mClips.size();
+	unsigned int numUIClips = (unsigned int)mClips.size();
 	for (unsigned int i = 0; i < numUIClips; ++i) {
 		if (mClips[i].GetName() == "Walking") {
 			mCPUAnimInfo.mClip = i;
@@ -52,7 +52,7 @@ void SampleMeshLoading::Initialize() {
 		else if (mClips[i].GetName() == "Running") {
 			mGPUAnimInfo.mClip = i;
 		}
-	}*/
+	}
 
 	m_CameraPosition = vec3(0, 5, 7);
 }
@@ -71,7 +71,7 @@ void SampleMeshLoading::MouseMovement(float x, float y) {
 }
 
 void SampleMeshLoading::Update(float deltaTime) {
-	/*mCPUAnimInfo.mPlayback = mClips[mCPUAnimInfo.mClip].Sample(mCPUAnimInfo.mAnimatedPose, mCPUAnimInfo.mPlayback + deltaTime);
+	mCPUAnimInfo.mPlayback = mClips[mCPUAnimInfo.mClip].Sample(mCPUAnimInfo.mAnimatedPose, mCPUAnimInfo.mPlayback + deltaTime);
 	mGPUAnimInfo.mPlayback = mClips[mGPUAnimInfo.mClip].Sample(mGPUAnimInfo.mAnimatedPose, mGPUAnimInfo.mPlayback + deltaTime);
 
 	for (unsigned int i = 0, size = (unsigned int)mCPUMeshes.size(); i < size; ++i) {
@@ -79,7 +79,7 @@ void SampleMeshLoading::Update(float deltaTime) {
 		mGPUMeshes[i].CPUSkin(mSkeleton, mGPUAnimInfo.mAnimatedPose);
 	}
 
-	mGPUAnimInfo.mAnimatedPose.GetMatrixPalette(mGPUAnimInfo.mPosePalette);*/
+	mGPUAnimInfo.mAnimatedPose.GetMatrixPalette(mGPUAnimInfo.mPosePalette);
 }
 
 void SampleMeshLoading::Render(float inAspectRatio) {
@@ -116,13 +116,13 @@ void SampleMeshLoading::Render(float inAspectRatio) {
 
 	Uniform<mat4>::Set(mSkinnedShader->GetUniform("animated"), mCPUAnimInfo.mPosePalette);
 
-	//mDiffuseTexture->Set(mSkinnedShader->GetUniform("tex0"), 0);
+	mDiffuseTexture->Set(mSkinnedShader->GetUniform("tex0"), 0);
 	for (unsigned int i = 0, size = (unsigned int)mGPUMeshes.size(); i < size; ++i) {
 		mGPUMeshes[i].Bind(mSkinnedShader->GetAttribute("position"), mSkinnedShader->GetAttribute("normal"), mSkinnedShader->GetAttribute("texCoord"), mSkinnedShader->GetAttribute("weights"), mSkinnedShader->GetAttribute("joints"));
 		mGPUMeshes[i].Draw();
 		mGPUMeshes[i].UnBind(mSkinnedShader->GetAttribute("position"), mSkinnedShader->GetAttribute("normal"), mSkinnedShader->GetAttribute("texCoord"), mSkinnedShader->GetAttribute("weights"), mSkinnedShader->GetAttribute("joints"));
 	}
-	//mDiffuseTexture->UnSet(0);
+	mDiffuseTexture->UnSet(0);
 	mSkinnedShader->UnBind();
 }
 

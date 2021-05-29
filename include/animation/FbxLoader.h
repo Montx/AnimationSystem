@@ -360,6 +360,7 @@ std::vector<Mesh> LoadFbxMeshes(const ofbx::IScene& scene) {
 
 		std::vector<ivec4>& out_joints_index = out_mesh.GetInfluences();
 		out_joints_index.insert(out_joints_index.end(), count, {-1, -1, -1, -1});
+
 		std::vector<vec4>& out_weights = out_mesh.GetWeights();
 		out_weights.insert(out_weights.end(), count, {});
 

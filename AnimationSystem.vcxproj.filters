@@ -180,6 +180,9 @@
     <ClInclude Include="include\imgui\imgui_impl_win32.h">
       <Filter>Header Files\imgui</Filter>
     </ClInclude>
+    <ClInclude Include="include\render\MeshFbx.h">
+      <Filter>Header Files\render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="src\imgui\imgui_impl_win32.cpp">
       <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render\MeshFbx.cpp">
+      <Filter>Source Files\render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
