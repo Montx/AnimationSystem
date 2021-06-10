@@ -14,26 +14,42 @@
 
 class Sample : public Application {
 protected:
-	Shader* mShader;
-	Texture* mTexture;
+	Texture* mCourseTexture;
+	std::vector<Mesh> mIKCourse;
+	std::vector<Triangle> mTriangles;
+
+	VectorTrack mMotionTrack;
+	float mWalkingTime;
+
+	Transform mModel;
 	std::vector<Mesh> mMeshes;
-	std::vector<Clip> mClips;
-	Skeleton mSkeleton;
-	std::vector<mat4> mPosePalette;
-
-	unsigned int mClip;
-	unsigned int mAdditiveIndex;
-
-	float mPlaybackTime;
-	float mAdditiveTime;
-	float mAdditiveDirection;
-
 	Pose mCurrentPose;
-	Pose mAddPose;
-	Pose mAdditiveBase;
+	std::vector<mat4> mPosePalette;
+	float mSinkIntoGround;
+
+	IKLeg* mLeftLeg;
+	IKLeg* mRightLeg;
+	float mToeLength;
+	float mLastModelY;
+
+	Texture* mDiffuseTexture;
+	Shader* mStaticShader;
+	Shader* mSkinnedShader;
+	Skeleton mSkeleton;
+	std::vector<Clip> mClips;
+	unsigned int mCurrentClip;
+	float mPlaybackTime;
+	DebugDraw* mCurrentPoseVisual;
+
+	bool mShowIKPose;
+	bool mShowCurrentPose;
+	float mTimeMod;
+	bool mDepthTest;
+	bool mShowMesh;
+	bool mShowEnvironment;
 public:
 	void Initialize();
-	void Update(float inDeltaTime);
+	void Update(float deltaTime);
 	void Render(float inAspectRatio);
 	void Shutdown();
 };

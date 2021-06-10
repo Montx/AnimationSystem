@@ -51,6 +51,7 @@ void Pose::SetLocalTransform(unsigned int index, const Transform& transform) {
 	mJoints[index] = transform;
 }
 
+// Gets the bone transform relative to the root bone
 Transform Pose::GetGlobalTransform(unsigned int i) {
 	Transform result = mJoints[i];
 

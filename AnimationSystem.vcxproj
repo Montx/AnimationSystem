@@ -140,14 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\animation\Blends.h" />
+    <ClInclude Include="include\animation\CCDSolver.h" />
     <ClInclude Include="include\animation\cgltf.h" />
     <ClInclude Include="include\animation\Clip.h" />
     <ClInclude Include="include\animation\CrossFadeController.h" />
     <ClInclude Include="include\animation\CrossFadeTarget.h" />
     <ClInclude Include="include\animation\Curves.h" />
+    <ClInclude Include="include\animation\FABRIKSolver.h" />
     <ClInclude Include="include\animation\Frame.h" />
     <ClInclude Include="include\animation\GLTFLoader.h" />
+    <ClInclude Include="include\animation\IkLeg.h" />
     <ClInclude Include="include\animation\Interpolation.h" />
+    <ClInclude Include="include\animation\Intersections.h" />
     <ClInclude Include="include\animation\Pose.h" />
     <ClInclude Include="include\animation\Skeleton.h" />
     <ClInclude Include="include\animation\Track.h" />
@@ -180,8 +184,12 @@
     <ClCompile Include="include\animation\CrossFadeController.cpp" />
     <ClCompile Include="include\math\quat.cpp" />
     <ClCompile Include="src\animation\Blends.cpp" />
+    <ClCompile Include="src\animation\CCDSolver.cpp" />
     <ClCompile Include="src\animation\cgltf.c" />
+    <ClCompile Include="src\animation\FABRIKSolver.cpp" />
     <ClCompile Include="src\animation\GLTFLoader.cpp" />
+    <ClCompile Include="src\animation\IKLeg.cpp" />
+    <ClCompile Include="src\animation\Intersections.cpp" />
     <ClCompile Include="src\animation\Pose.cpp" />
     <ClCompile Include="src\animation\Clip.cpp" />
     <ClCompile Include="src\animation\Skeleton.cpp" />

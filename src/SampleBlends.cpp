@@ -6,6 +6,7 @@
 #include "glad.h"
 #include "render/Mesh.h"
 #include "animation/Blends.h"
+#include "animation/IKLeg.h"
 
 void Sample::Initialize() {
 	cgltf_data* gltf = LoadGLTFFile("Assets/Woman.gltf");

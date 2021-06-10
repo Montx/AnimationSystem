@@ -147,6 +147,18 @@
     <ClInclude Include="include\SampleBlends.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\animation\CCDSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\FABRIKSolver.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\IkLeg.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Intersections.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -235,6 +247,18 @@
     </ClCompile>
     <ClCompile Include="src\SampleBlends.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\CCDSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\FABRIKSolver.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\IKLeg.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\Intersections.cpp">
+      <Filter>Source Files\animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
