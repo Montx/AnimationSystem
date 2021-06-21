@@ -1,5 +1,10 @@
 #pragma once
 
+enum class EInput {
+	None,
+	F1
+};
+
 class Application {
 public:
 
@@ -11,6 +16,8 @@ public:
 	inline virtual ~Application() { }
 
 	inline virtual void Initialize() { }
+
+	inline virtual void HandleInput(EInput input) { }
 
 	inline virtual void Update(float inDeltaTime) { }
 

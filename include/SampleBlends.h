@@ -11,6 +11,7 @@
 #include "render/Shader.h"
 #include "animation/CrossFadeController.h"
 #include "animation/CrossFadeTarget.h"
+#include "animation/Character.h"
 
 class Sample : public Application {
 protected:
@@ -31,9 +32,13 @@ protected:
 	Pose mCurrentPose;
 	Pose mAddPose;
 	Pose mAdditiveBase;
+
+	CCharacter mCharacter;
+
 public:
 	void Initialize();
 	void Update(float inDeltaTime);
 	void Render(float inAspectRatio);
+	void HandleInput(EInput input) override;
 	void Shutdown();
 };

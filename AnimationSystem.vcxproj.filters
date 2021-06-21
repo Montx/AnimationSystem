@@ -147,6 +147,24 @@
     <ClInclude Include="include\SampleBlends.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\animation\State.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Transition.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\StateActions.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\StateMachine.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Character.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\animation\Conditions.h">
+      <Filter>Header Files\animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WinMain.cpp">
@@ -200,29 +218,17 @@
     <ClCompile Include="src\render\DebugDraw.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="src\SampleTextureRender.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SampleTracks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\animation\Pose.cpp">
       <Filter>Source Files\animation</Filter>
     </ClCompile>
     <ClCompile Include="src\animation\Clip.cpp">
       <Filter>Source Files\animation</Filter>
     </ClCompile>
-    <ClCompile Include="src\SampleRestPose.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\animation\Skeleton.cpp">
       <Filter>Source Files\animation</Filter>
     </ClCompile>
     <ClCompile Include="src\render\Mesh.cpp">
       <Filter>Source Files\render</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SampleMeshLoading.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\math\mat4.cpp">
       <Filter>Source Files\math</Filter>
@@ -235,6 +241,15 @@
     </ClCompile>
     <ClCompile Include="src\SampleBlends.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\Transition.cpp">
+      <Filter>Source Files\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\animation\Conditions.cpp">
+      <Filter>Source Files\animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

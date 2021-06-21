@@ -207,6 +207,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 				break;
 			}
 
+			EInput input = EInput::None;
+
+			if (msg.message == WM_KEYDOWN) {
+				if (msg.wParam == VK_F1) {
+					input = EInput::F1;
+				}
+			}
+
+			gApplication->HandleInput(input);
+
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}

@@ -65,6 +65,8 @@ void Sample::Update(float dt) {
 	Add(mCurrentPose, mCurrentPose, mAddPose, mAdditiveBase, -1);
 
 	mCurrentPose.GetMatrixPalette(mPosePalette);
+
+	mCharacter.Update(dt);
 }
 
 void Sample::Render(float aspect) {
@@ -88,4 +90,12 @@ void Sample::Render(float aspect) {
 	mTexture->UnSet(0);
 
 	mShader->UnBind();
+}
+
+void Sample::HandleInput(EInput input) {
+	switch (input) {
+		case EInput::F1:
+			mCharacter.SetIsMoving(!mCharacter.IsMoving());
+			break;
+	}
 }

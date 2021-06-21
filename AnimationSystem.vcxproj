@@ -142,6 +142,7 @@
     <ClInclude Include="include\animation\Blends.h" />
     <ClInclude Include="include\animation\cgltf.h" />
     <ClInclude Include="include\animation\Clip.h" />
+    <ClInclude Include="include\animation\Conditions.h" />
     <ClInclude Include="include\animation\CrossFadeController.h" />
     <ClInclude Include="include\animation\CrossFadeTarget.h" />
     <ClInclude Include="include\animation\Curves.h" />
@@ -150,9 +151,14 @@
     <ClInclude Include="include\animation\Interpolation.h" />
     <ClInclude Include="include\animation\Pose.h" />
     <ClInclude Include="include\animation\Skeleton.h" />
+    <ClInclude Include="include\animation\State.h" />
+    <ClInclude Include="include\animation\StateActions.h" />
+    <ClInclude Include="include\animation\StateMachine.h" />
     <ClInclude Include="include\animation\Track.h" />
     <ClInclude Include="include\animation\TransformTrack.h" />
+    <ClInclude Include="include\animation\Transition.h" />
     <ClInclude Include="include\Application.h" />
+    <ClInclude Include="include\Character.h" />
     <ClInclude Include="include\glad\glad.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
     <ClInclude Include="include\math\mat4.h" />
@@ -181,12 +187,15 @@
     <ClCompile Include="include\math\quat.cpp" />
     <ClCompile Include="src\animation\Blends.cpp" />
     <ClCompile Include="src\animation\cgltf.c" />
+    <ClCompile Include="src\animation\Conditions.cpp" />
     <ClCompile Include="src\animation\GLTFLoader.cpp" />
     <ClCompile Include="src\animation\Pose.cpp" />
     <ClCompile Include="src\animation\Clip.cpp" />
     <ClCompile Include="src\animation\Skeleton.cpp" />
     <ClCompile Include="src\animation\Track.cpp" />
     <ClCompile Include="src\animation\TransformTrack.cpp" />
+    <ClCompile Include="src\animation\Transition.cpp" />
+    <ClCompile Include="src\Character.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\math\mat4.cpp" />
     <ClCompile Include="src\math\Transform.cpp" />
@@ -201,10 +210,6 @@
     <ClCompile Include="src\render\Texture.cpp" />
     <ClCompile Include="src\render\Uniform.cpp" />
     <ClCompile Include="src\SampleBlends.cpp" />
-    <ClCompile Include="src\SampleMeshLoading.cpp" />
-    <ClCompile Include="src\SampleRestPose.cpp" />
-    <ClCompile Include="src\SampleTextureRender.cpp" />
-    <ClCompile Include="src\SampleTracks.cpp" />
     <ClCompile Include="src\WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
