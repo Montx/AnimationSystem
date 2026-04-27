@@ -75,7 +75,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wndclass.hbrBackground = (HBRUSH)(COLOR_BTNFACE + 1);
 	wndclass.lpszMenuName = 0;
-	wndclass.lpszClassName = (LPCWSTR)"Win32 Game Window";
+	wndclass.lpszClassName = (LPCWSTR) (L"Win32 Game Window");
 
 	RegisterClassEx(&wndclass);
 
@@ -100,7 +100,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	HWND hwnd = CreateWindowEx(
 		0, 
 		wndclass.lpszClassName, 
-		(LPCWSTR)"Game Window",
+		(LPCWSTR)(L"Ricardo\s Anim Previewer"),
 		style, 
 		windowRect.left, 
 		windowRect.top, 
