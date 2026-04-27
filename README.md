@@ -1,1 +1,1 @@
-![til](./anim_rigged.gif))
+![anim_rigged](./documentation/anim_rigged.gif)
